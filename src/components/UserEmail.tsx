@@ -1,8 +1,7 @@
-import { Typography } from '@material-ui/core';
 import React from 'react';
 
 type UserEmailProps = {
-	email: string;
+	email?: string;
 	showEmailLabel?: boolean;
 };
 

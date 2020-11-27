@@ -14,7 +14,7 @@ import {
 
 const API_URL = 'https://jsonplaceholder.typicode.com';
 
-interface CounterState {
+interface UserState {
 	fetchingUsers: boolean;
 	fetchingTodos: boolean;
 	fetchingAlbums: boolean;
@@ -22,7 +22,7 @@ interface CounterState {
 	users: Array<UserModel>;
 }
 
-const initialState: CounterState = {
+const initialState: UserState = {
 	fetchingUsers: false,
 	fetchingTodos: false,
 	fetchingAlbums: false,

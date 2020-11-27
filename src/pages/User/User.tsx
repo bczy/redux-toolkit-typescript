@@ -15,7 +15,7 @@ import UserModel from '../../data/models';
 import React from 'react';
 
 function User({ location }: any): React.ReactElement {
-	const user = location.state?.user as UserModel;
+	const user = location.state.user as UserModel;
 	return (
 		<Paper>
 			<Typography variant="h4">User details</Typography>
@@ -36,7 +36,7 @@ function User({ location }: any): React.ReactElement {
 						<b>Album list</b>
 					</Typography>
 					<List>
-						{user.albums.map((album, i) => (
+						{user?.albums?.map((album, i) => (
 							<Link key={i} to={{ pathname: 'album', state: album }}>
 								<ListItem button>
 									<ListItemIcon>

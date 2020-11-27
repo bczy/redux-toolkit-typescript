@@ -1,30 +1,28 @@
-export class Company {
-	public name: string = '';
+export interface Company {
+	name: string;
 }
-export class TodoModel {
-	constructor(public userId: number) {}
+export interface TodoModel {
+	userId: number;
 }
-export class AlbumModel {
-	public thumbnails: Array<ThumbModel>;
-	constructor(public id: number, public title: string, public userId: number) {
-		this.thumbnails = new Array<ThumbModel>();
-	}
+export interface AlbumModel {
+	thumbnails: Array<ThumbModel>;
+	id: number;
+	title: string;
+	userId: number;
 }
-export class ThumbModel {
-	constructor(
-		public albumId: number,
-		public thumbnailUrl: string,
-		public title: string
-	) {}
+export interface ThumbModel {
+	albumId: number;
+	thumbnailUrl: string;
+	title: string;
 }
 
-export default class UserModel {
-	public username: string = '';
-	public email: string = '';
-	public website: string = '';
-	public company: Company = new Company();
-	public nbTodos: number = 0;
-	public albums: Array<AlbumModel> = new Array<AlbumModel>();
-	public name: string = '';
-	constructor(public id: number) {}
+export default interface UserModel {
+	id: number;
+	username?: string;
+	email?: string;
+	website?: string;
+	company?: Company;
+	nbTodos?: number;
+	albums?: Array<AlbumModel>;
+	name?: string;
 }

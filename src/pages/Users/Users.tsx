@@ -63,8 +63,8 @@ export default function Users(): React.ReactElement {
 									<TableCell>
 										<UserEmail email={user.email} />
 									</TableCell>
-									<UserWebSite url={user.website} />
-									<TableCell>{user.company.name}</TableCell>
+									<UserWebSite url={user?.website} />
+									<TableCell>{user?.company?.name}</TableCell>
 									<TableCell>
 										{fetchingTodos ? 'Loading...' : user.nbTodos}
 									</TableCell>

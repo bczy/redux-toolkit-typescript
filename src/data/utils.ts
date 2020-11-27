@@ -9,9 +9,6 @@ export function mergeUsersWithOtherInfo(
 		let previousUser = users.find(
 			(previousUser) => previousUser.id === actionUsers[i].id
 		);
-		if (!previousUser) {
-			previousUser = new UserModel(actionUsers[i].id);
-		}
 		users[i] = { ...previousUser, ...actionUsers[i] };
 	}
 	return users;
@@ -27,10 +24,10 @@ export function mergeUsersAndTodos(
 			(user) => user.id === todos[i].userId
 		);
 		if (!userToUpate) {
-			userToUpate = new UserModel(todos[i].userId);
+			userToUpate = { id: todos[i].userId };
 			updatedUsersWithTodos.push(userToUpate);
 		}
-		userToUpate.nbTodos++;
+		userToUpate.nbTodos = (userToUpate.nbTodos || 0) + 1;
 	}
 	return updatedUsersWithTodos;
 }
@@ -44,12 +41,13 @@ export function mergeUsersAndAlbums(
 			(user) => user.id === albums[i].userId
 		);
 		if (!userToUpate) {
-			userToUpate = new UserModel(albums[i].userId);
-			updatedUsersWithAlbum.push(userToUpate);
+			userToUpate = { id: albums[i].userId };
 		}
-		userToUpate.albums.push(
-			new AlbumModel(albums[i].id, albums[i].title, albums[i].userId)
-		);
+		if (!userToUpate.albums) {
+			userToUpate.albums = new Array<AlbumModel>();
+		}
+		const { id, title, userId, thumbnails }: AlbumModel = albums[i];
+		userToUpate.albums.push({ id, title, userId, thumbnails });
 	}
 	return updatedUsersWithAlbum;
 }
@@ -60,9 +58,12 @@ export function addThumbsToAlbums(
 	const updatedUsers = [...users];
 	for (let i = 0; i < thumbs.length; i++) {
 		for (let j = 0; j < updatedUsers.length; j++) {
-			let album = updatedUsers[j].albums.find(
+			let album = updatedUsers[j].albums?.find(
 				(album) => album.id === thumbs[i].albumId
 			);
+			if (album && !album.thumbnails) {
+				album.thumbnails = new Array<ThumbModel>();
+			}
 			album?.thumbnails.push(thumbs[i]);
 		}
 	}
