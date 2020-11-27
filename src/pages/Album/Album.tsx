@@ -11,6 +11,7 @@ import { ThumbModel } from '../../data/models';
 
 import { selectFetchingThumbs } from '../../pages/Users/UsersSlice';
 import { useSelector } from 'react-redux';
+import PageContainer from '../../components/PageContainer';
 
 function Album({ location }: any): React.ReactElement {
 	const title = location.state.title;
@@ -22,9 +23,7 @@ function Album({ location }: any): React.ReactElement {
 		history.goBack();
 	}
 	return (
-		<Paper>
-			<Typography variant="h4">Album details</Typography>
-
+		<PageContainer title={'Album details'}>
 			<Typography variant="h5">Title: {title}</Typography>
 			{fetchingThumbs ? (
 				<Typography variant="h3">Loading...</Typography>
@@ -48,7 +47,7 @@ function Album({ location }: any): React.ReactElement {
 			>
 				Back to user details
 			</Button>
-		</Paper>
+		</PageContainer>
 	);
 }
 export default Album;

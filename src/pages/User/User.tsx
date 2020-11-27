@@ -1,4 +1,3 @@
-import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -11,14 +10,15 @@ import FolderIcon from '@material-ui/icons/Folder';
 import { Link } from 'react-router-dom';
 
 import UserEmail from '../../components/UserEmail';
+import PageContainer from '../../components/PageContainer';
+
 import { UserModel } from '../../data/models';
 import React from 'react';
 
 function User({ location }: any): React.ReactElement {
 	const user = location.state.user as UserModel;
 	return (
-		<Paper>
-			<Typography variant="h4">User details</Typography>
+		<PageContainer title={'User details'}>
 			<br />
 			{user && (
 				<>
@@ -52,7 +52,7 @@ function User({ location }: any): React.ReactElement {
 			<Button variant="contained" style={{ margin: '1em' }}>
 				<Link to="/">Back to user list</Link>
 			</Button>
-		</Paper>
+		</PageContainer>
 	);
 }
 export default User;

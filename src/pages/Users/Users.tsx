@@ -15,6 +15,8 @@ import Paper from '@material-ui/core/Paper';
 
 import UserWebSite from '../../components/UserWebSite';
 import UserEmail from '../../components/UserEmail';
+import PageContainer from '../../components/PageContainer';
+
 import {
 	selectFetchingAlbums,
 	selectFetchingTodos,
@@ -42,8 +44,7 @@ export default function Users(): React.ReactElement {
 	const fetchingTodos = useSelector(selectFetchingTodos);
 
 	return (
-		<>
-			<Typography variant="h4">User list</Typography>
+		<PageContainer title={'User list'}>
 			<TableContainer component={Paper}>
 				<Table aria-label="user list">
 					<UserTableHead />
@@ -77,6 +78,6 @@ export default function Users(): React.ReactElement {
 					</TableBody>
 				</Table>
 			</TableContainer>
-		</>
+		</PageContainer>
 	);
 }
