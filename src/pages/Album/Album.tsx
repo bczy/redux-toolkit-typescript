@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+
 import Typography from '@material-ui/core/Typography';
 
 import { useHistory } from 'react-router-dom';
@@ -12,6 +12,7 @@ import { ThumbModel } from '../../data/models';
 import { selectFetchingThumbs } from '../../pages/Users/UsersSlice';
 import { useSelector } from 'react-redux';
 import PageContainer from '../../components/PageContainer';
+import LazyImage from '../../components/Image';
 
 function Album({ location }: any): React.ReactElement {
 	const title = location.state.title;
@@ -31,7 +32,7 @@ function Album({ location }: any): React.ReactElement {
 				<Grid container spacing={1}>
 					{thumbnails?.map((thumbnail, i) => (
 						<Grid item xs={1} key={i}>
-							<img
+							<LazyImage
 								alt={thumbnail.title}
 								src={thumbnail.thumbnailUrl}
 								style={{ width: '100%' }}
