@@ -1,4 +1,4 @@
-import UserModel, { AlbumModel, ThumbModel, TodoModel } from './models';
+import { UserModel, AlbumModel, ThumbModel, TodoModel } from './models';
 
 export function mergeUsersWithOtherInfo(
 	previousUsers: Array<UserModel>,

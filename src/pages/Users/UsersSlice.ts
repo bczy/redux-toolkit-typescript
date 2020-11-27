@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk, RootState } from '../../data/store';
-import UserModel, {
+import {
+	UserModel,
 	AlbumModel,
 	ThumbModel,
 	TodoModel,
@@ -76,7 +77,7 @@ export const {
 	receiveUsers,
 } = usersSlice.actions;
 
-// The function below is called a thunk and allows us to perform async logic. It
+// Functions below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched

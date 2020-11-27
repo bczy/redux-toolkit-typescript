@@ -11,7 +11,7 @@ import FolderIcon from '@material-ui/icons/Folder';
 import { Link } from 'react-router-dom';
 
 import UserEmail from '../../components/UserEmail';
-import UserModel from '../../data/models';
+import { UserModel } from '../../data/models';
 import React from 'react';
 
 function User({ location }: any): React.ReactElement {

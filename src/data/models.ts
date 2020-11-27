@@ -16,7 +16,7 @@ export interface ThumbModel {
 	title: string;
 }
 
-export default interface UserModel {
+export interface UserModel {
 	id: number;
 	username?: string;
 	email?: string;
