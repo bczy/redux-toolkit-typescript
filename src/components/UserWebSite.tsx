@@ -11,6 +11,7 @@ export default function UserWebSite({ url }: UserWebSiteProps) {
 			<a
 				href={url?.indexOf('http') === -1 ? `https://${url}` : url}
 				target="_blank"
+				rel="noreferrer"
 			>
 				{url}
 			</a>
