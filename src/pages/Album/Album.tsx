@@ -30,7 +30,7 @@ function Album({ location }: any): React.ReactElement {
 				<Typography variant="h3">Loading...</Typography>
 			) : (
 				<Grid container spacing={1}>
-					{thumbnails.map((thumbnail, i) => (
+					{thumbnails?.map((thumbnail, i) => (
 						<Grid item xs={1} key={i}>
 							<img
 								alt={thumbnail.title}
